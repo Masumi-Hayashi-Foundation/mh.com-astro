@@ -1,26 +1,98 @@
 ---
-import Social from '../components/Social.astro'
+
 ---
 
-<style>
-  footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-    background-color: #000248;
-    color: #fefef3;
-    padding: 1rem;
-  }
-</style>
-
-<footer>
-
-  <Social platform="twitter" username="dkeesey" />
-  <Social platform="github" username="dkeesey" />
-  <Social platform="youtube" username="dkeesey" />
-  <!-- <Social platform="linkedin" username="dean-keesey" /> -->
+<!-- src/components/Footer.astro -->
+<footer class="site-footer">
+  <div class="footer-content">
+    <section class="footer-section">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/gallery">Gallery</a></li>
+        <li><a href="/collections">Collections</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </section>
+    <section class="footer-section">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="/bibliography">Bibliography</a></li>
+        <li><a href="/acknowledgements">Acknowledgements</a></li>
+        <li><a href="https://masumimuseum.com/resume">Resume (Masumi Museum)</a></li>
+      </ul>
+    </section>
+    <section class="footer-section">
+      <h4>Projects</h4>
+      <ul>
+        <li><a href="/family-album-project">Family Album Project</a></li>
+      </ul>
+    </section>
+    <section class="footer-section">
+      <h4>Historical Context</h4>
+      <ul>
+        <li><a href="/newsletter-archive">Newsletter Archive</a></li>
+        <li><a href="/interactive-timeline">Interactive Timeline</a></li>
+      </ul>
+    </section>
+    <section class="footer-section">
+      <h4>External Links</h4>
+      <ul>
+        <li><a href="https://masumimuseum.com">Masumi Museum</a></li>
+        <li><a href="https://masumihayashifoundation.org">Masumi Hayashi Foundation</a></li>
+      </ul>
+    </section>
+  </div>
 </footer>
+
+
+<style>
+  .site-footer {
+    background-color: #f3f4f6;
+    padding: 20px;
+    color: #333;
+    font-size: 14px;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .footer-section h4 {
+    color: #222;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-section ul li a {
+    color: #666;
+    text-decoration: none;
+    line-height: 2;
+    transition: color 0.3s;
+  }
+  
+  .footer-section ul li a:hover {
+    color: #333;
+  }
+  
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .footer-section {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  }
+  
+  </style>
