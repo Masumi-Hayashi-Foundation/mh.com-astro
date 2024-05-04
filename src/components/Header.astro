@@ -1,99 +1,34 @@
 ---
 
-function toggleMenu() {
-    const navMenu = document.getElementById('navMenu');
-    if (navMenu) {
-        navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
-    }
-}
+// function toggleMenu() {
+//     const navMenu = document.getElementById('navMenu');
+//     if (navMenu) {
+//         navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+//     }
+// }
 ---
-
-<!-- src/components/Header.astro -->
-<header class="site-header">
-  <nav class="navbar">
-    <a href="/" class="logo">Masumi Hayashi Archive</a>
-    <ul class="nav-list" id="navMenu">
-      <li><a href="/">Home</a></li>
-      <li><a href="/gallery">Gallery</a></li>
-      <li>
+<header class="bg-gray-100 shadow-md relative z-10 w-full">
+  <nav class="flex justify-between items-center px-5 mx-auto" style="max-width: 1440px;">
+    <a href="/" class="logo ml-20 text-gray-800 font-bold text-xl">Masumi Hayashi Archive</a>
+    <ul class="nav-list md:flex mr-20">
+      <li class="px-3 py-2"><a href="/">Home</a></li>
+      <li class="px-3 py-2"><a href="/gallery">Gallery</a></li>
+      <li class="relative px-3 py-2">
         <a href="/collections">Collections</a>
-        <ul class="dropdown">
-          <li><a href="/collections/american-camps">American Concentration Camps</a></li>
-          <li><a href="/collections/japanese-canadian">Japanese Canadian Series</a></li>
+        <ul class="dropdown absolute hidden bg-white shadow-lg py-2">
+          <li><a href="/collections/american-camps" class="block px-5 py-2">American Concentration Camps</a></li>
+          <li><a href="/collections/japanese-canadian" class="block px-5 py-2">Japanese Canadian Series</a></li>
         </ul>
       </li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/contact">Contact</a></li>
+      <li class="px-3 py-2"><a href="/about">About</a></li>
+      <li class="px-3 py-2"><a href="/contact">Contact</a></li>
     </ul>
-   <button class="menu-toggle" onclick="">☰</button>
-  
+    <!-- <button class="menu-toggle md:hidden">☰</button> -->
   </nav>
 </header>
 
 <style>
-    /* Example basic CSS for navigation */
-.site-header {
-    background: #f8f9fa;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    position: relative;
-    z-index: 1000;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-}
-
-.nav-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-.nav-list li {
-    padding: 10px 15px;
-}
-
-.nav-list li .dropdown {
-    display: none;
-    position: absolute;
-    background-color: white;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    padding: 5px;
-}
-
-.nav-list li:hover .dropdown {
+  .nav-list li:hover .dropdown {
     display: block;
-}
-
-.logo {
-    color: #333;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.5em;
-}
-
-.menu-toggle {
-    display: none;
-}
-
-@media (max-width: 768px) {
-    .nav-list {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .nav-list li {
-        text-align: center;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-}
-
+  }
 </style>

@@ -1,0 +1,61 @@
+---
+// The JavaScript part (place this in the script section at the top of your Astro file)
+const baseURL =
+  "https://res.cloudinary.com/masumi-hayashi-foundation/image/upload";
+
+
+  const transformations = [
+  "bo_30px_solid_black",
+  "b_black",
+  "c_scale",
+  // "bo_100px_solid_black_bottom"
+];
+
+const copyrightText = "© 2024 Dean Keesey. All rights reserved.%0Awww.masumihayashi.com";
+const encodedCopyrightText = encodeURIComponent(copyrightText);
+
+const imageTitleDetails = "Manzanar Relocation Camp, Monument, Inyo County, California, 1995%0AArtist: Dr. Masumi Hayashi%0APanoramic photo collage with Fuji Crystal Archive prints"; //use %0A as a line break
+
+const encodedImageTitleDetails = imageTitleDetails
+    .replace(/,/g, '%2C')
+    .split('\n')
+    .map(part => encodeURIComponent(part))
+    .join('%0A');
+
+// const encodedImageTitleDetails = encodeURIComponent(imageTitleDetails.replace(/,/g, '%252C')); 
+// Double-escape the comma
+// const encodedImageTitleDetails = encodeURIComponent(imageTitleDetails)
+
+
+const copyrightTextParam = `l_text:Helvetica_24_line_spacing_12:${encodedCopyrightText},co_white,g_south_west,x_30,y_-60`;
+const imageTitleDetailsParam = `l_text:Helvetica_24_line_spacing_12:${encodedImageTitleDetails},co_white,g_south_east,x_30,y_-40`;
+
+const imageID = "v1683239294/Manzanar_Relocation_Camp_Monument_so2g5c.jpg";
+const imageURL = `${baseURL}/${transformations.join(",")},w_1920/${encodedCopyrightText}/${encodedImageTitleDetails}/${imageID}`;
+
+const imageURL1920 = `${baseURL}/${transformations.join(",")},w_1920/${copyrightTextParam}/${imageTitleDetailsParam}/${imageID}`;
+const imageURL1280 = `${baseURL}/${transformations.join(",")},w_1280/${copyrightTextParam}/${imageTitleDetailsParam}/${imageID}`;
+const imageURL960 = `${baseURL}/${transformations.join(",")},w_960/${copyrightTextParam}/${imageTitleDetailsParam}/${imageID}`;
+const imageURL640 = `${baseURL}/${transformations.join(",")},w_640/${copyrightTextParam}/${imageTitleDetailsParam}/${imageID}`;
+const imageURL320 = `${baseURL}/${transformations.join(",")},w_320/${copyrightTextParam}/${imageTitleDetailsParam}/${imageID}`;
+
+const srcsetValue = `${imageURL320} 320w, ${imageURL640} 640w, ${imageURL960} 960w, ${imageURL1280} 1280w, ${imageURL1920} 1920w`;
+
+
+---
+  <img
+    src={imageURL1280}
+    srcset={srcsetValue}
+
+  />
+
+
+<style>
+  img {
+    display: block;
+    margin: 0 auto;
+    border-bottom: 30px solid black;
+    border-radius: 20px;
+  }
+
+</style>
