@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  mode: "jit",
+  purge: ["./public/**/*.html", "./src/**/*.{astro,js,jsx,ts,tsx,vue}"],
   plugins: [require("@tailwindcss/typography")],
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
@@ -13,8 +15,12 @@ export default {
         "museum-gold": "#bdaa8f", // Soft metallic gold for highlighting
       },
       boxShadow: {
-        'upward': '0 -4px 10px -5px rgba(0, 0, 0, 0.3)',
-      }
+        upward: "0 -4px 10px -5px rgba(0, 0, 0, 0.3)",
+      },
+      fontFamily: {
+        montserrat: ['Montserrat', 'sans-serif'],
+        robotoCondensed: ['Roboto Condensed', 'sans-serif'],
+      },
     },
   },
 };

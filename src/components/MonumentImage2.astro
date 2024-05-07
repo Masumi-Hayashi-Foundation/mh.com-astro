@@ -6,22 +6,24 @@ const baseURL =
 const transformations = ["bo_30px_solid_black", "b_black", "c_scale"];
 
 const currentYear = new Date().getFullYear();
-const copySm = ``;
+// const copySm = ``; // consolidate copyright to image details for small screens
+
 const copyMd = `© ${currentYear} Dean Keesey%0Awww.masumihayashi.com`;
 const copyLg = `© ${currentYear} Dean Keesey. All rights reserved.%0Awww.masumihayashi.com`;
 
-const encodedCopySm = encodeURIComponent(copySm);
-const encodedCopyMd = encodeURIComponent(copyMd);
-const encodedCopyLg = encodeURIComponent(copyLg);
-
-const copySmParam = `l_text:futura_16_line_spacing_12:${encodedCopySm},co_white,g_south_east,x_30,y_-20`;
-const copyMdParam = `l_text:futura_16_line_spacing_12:${encodedCopyMd},co_white,g_south_west,x_30,y_-60`;
-const copyLgParam = `l_text:futura_16_line_spacing_12:${encodedCopyLg},co_white,g_south_west,x_30,y_-60`;
 const imageDetailsSm = `Manzanar Relocation Camp, Monument%0AArtist:Dr. Masumi Hayashi%0A© ${currentYear} Dean Keesey`;
 const imageDetailsMd =
   "Manzanar Relocation Camp, Monument%0AInyo County, California, 1995%0AArtist:Dr. Masumi Hayashi";
 const imageDetailsLg =
   "Manzanar Relocation Camp, Monument, Inyo County, California, 1995%0AArtist: Dr. Masumi Hayashi%0APanoramic photo collage with Fuji Crystal Archive prints";
+
+// const encodedCopySm = encodeURIComponent(copySm);
+const encodedCopyMd = encodeURIComponent(copyMd);
+const encodedCopyLg = encodeURIComponent(copyLg);
+
+// const copySmParam = `l_text:futura_16_line_spacing_12:${encodedCopySm},co_white,g_south_east,x_30,y_-20`;
+const copyMdParam = `l_text:futura_16_line_spacing_12:${encodedCopyMd},co_white,g_south_west,x_30,y_-60`;
+const copyLgParam = `l_text:futura_16_line_spacing_12:${encodedCopyLg},co_white,g_south_west,x_30,y_-60`;
 
 const encodeImageDetails = (details: string) => {
   return details
