@@ -1,5 +1,5 @@
 ---
-
+import HamburgerMenu from "./HamburgerMenu.astro";
 ---
 
 <header class="bg-gray-100 shadow-md relative z-10 w-full">
@@ -12,7 +12,11 @@
         Masumi Hayashi
       </h1>
     </a>
-    <ul class="nav-list md:flex mr-20">
+
+    <div class="md:hidden">
+      <HamburgerMenu />
+    </div>
+    <ul class="nav-list mr-20 hidden md:flex">
       <li class="px-3 py-2"><a href="/">Home</a></li>
       <li class="px-3 py-2"><a href="/gallery">Gallery</a></li>
       <li class="relative px-3 py-2">
@@ -33,12 +37,31 @@
       <li class="px-3 py-2"><a href="/about">About</a></li>
       <li class="px-3 py-2"><a href="/contact">Contact</a></li>
     </ul>
-    <!-- <button class="menu-toggle md:hidden">☰</button> -->
   </nav>
 </header>
 
 <style>
+  .nav-list li {
+    display: inline-block;
+    margin-right: 10px; /* Adjust spacing as needed */
+  }
+
   .nav-list li:hover .dropdown {
     display: block;
+  }
+
+  @media (max-width: 768px) {
+    .nav-list {
+      display: none;
+    }
+    .menu-toggle {
+      display: block;
+    }
+  }
+
+  .menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
   }
 </style>

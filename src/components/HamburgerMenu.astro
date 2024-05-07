@@ -1,0 +1,26 @@
+<script>
+  let isOpen = false;
+  const toggleMenu = () => {
+    isOpen = !isOpen;
+  };
+
+  const btn = document.querySelector(".menu-toggle");
+  if (btn) {
+    btn.addEventListener("click", toggleMenu);
+  }
+
+  const navList = document.querySelector(".nav-list") as HTMLElement;
+  // display navList if isOpen is true
+  if (navList) {
+    navList.style.display = isOpen ? "block" : "none";
+  }
+</script>
+
+<button class="menu-toggle" type="button">☰</button>
+<ul class="nav-list">
+  <li class="px-3 py-2"><a href="/">Home</a></li>
+  <li class="px-3 py-2"><a href="/gallery">Gallery</a></li>
+  <li class="px-3 py-2"><a href="/collections">Collections</a></li>
+  <li class="px-3 py-2"><a href="/about">About</a></li>
+  <li class="px-3 py-2"><a href="/contact">Contact</a></li>
+</ul>
