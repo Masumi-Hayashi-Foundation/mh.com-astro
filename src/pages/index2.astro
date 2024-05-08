@@ -1,31 +1,29 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import CloudinaryImage from "../components/CloudinaryImage.astro";
+import MonumentImage3 from "../components/MonumentImage3.astro";
 
-const manznarMonument = {
+// component props expected:  title, media, city, state, year, cloudinaryId,
+
+const manzanarMonument = {
   title: "Manzanar Relocation Camp, Monument",
   media: "Panoramic photo collage with Fuji Crystal Archive prints",
   year: 1995,
   city: "Inyo County",
   state: "California",
   country: "USA",
-  size: "20in. x 40in.",
-  inventory: "n/a",
   cloudinaryId: "Manzanar_Relocation_Camp_Monument_so2g5c.jpg",
+  size: '20" x 40"',
 };
-
-// Using the JSON object `manznarMonument` to pass data to CloudinaryImage component
-<MainLayout>
-  <div class="flex flex-col items-center justify-center font-montserrat">
-    <CloudinaryImage
-      cloudinaryId={manznarMonument.cloudinaryId}
-      title={manznarMonument.title}
-      year={manznarMonument.year}
-      city={manznarMonument.city}
-      state={manznarMonument.state}
-      country={manznarMonument.country}
-      size={manznarMonument.size}
-    />
-  </div>
-</MainLayout>;
 ---
+
+<MainLayout>
+  <MonumentImage3
+    title={manzanarMonument.title}
+    city={manzanarMonument.city}
+    state={manzanarMonument.state}
+    year={manzanarMonument.year}
+    cloudinaryId={manzanarMonument.cloudinaryId}
+    media={manzanarMonument.media}
+  />
+</MainLayout>
