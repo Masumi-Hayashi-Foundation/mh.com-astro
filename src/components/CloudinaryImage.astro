@@ -1,0 +1,56 @@
+---
+interface ImageMeta {
+  cloudinaryId: string;
+  title: string;
+  artist: string;
+  year: number;
+  city: string;
+  state: string;
+  country: string;
+  mediaDescription: string;
+  website: string;
+  copyrightNotice: string;
+}
+
+const CloudImage = ({ meta }: { meta: ImageMeta }) => {
+  const location = `${meta.city}, ${meta.state}, ${meta.country}`;
+  const currentYear = new Date().getFullYear();
+  const copyText = `© ${currentYear} ${meta.copyrightNotice}%0A${meta.website}`;
+  const imageDetails = `${meta.title}, ${location}%0AArtist:${meta.artist}%0A© ${currentYear} ${meta.copyrightNotice}`;
+
+  const copyMd = `© ${currentYear} Dean Keesey%0Awww.masumihayashi.com`;
+  const copyLg = `© ${currentYear} Dean Keesey. All rights reserved.%0Awww.masumihayashi.com`;
+
+  const encodedCopy = encodeURIComponent(copyText);
+  const encodeImageDetails = (details: string) => {
+    return details
+      .replace(/,/g, "%2C")
+      .split("%0A")
+      .map((part) => encodeURIComponent(part))
+      .join("%0A");
+  };
+  const encodedImageDetails = encodeImageDetails(imageDetails);
+
+  const copyParam = `l_text:futura_16_line_spacing_12:${encodedCopy},co_white,g_south_west,x_30,y_-60`;
+  const imageDetailsParam = `l_text:futura_20_line_spacing_12:${encodedImageDetails},co_white,g_south_east,x_30,y_-40`;
+
+  const baseURL =
+    "https://res.cloudinary.com/masumi-hayashi-foundation/image/upload";
+
+  const transformations = ["bo_30px_solid_black", "b_black", "c_scale"];
+
+  const imageID = meta.cloudinaryId;
+  const imageURLs = [640, 768, 1024, 1280, 1536, 1920].map((width) => {
+    return `${baseURL}/${transformations.join(",")},w_${width}/${copyParam}/${imageDetailsParam}/${imageID} ${width}w`;
+  });
+  const srcsetValue = imageURLs.join(", ");
+
+  return (
+    <div class="rounded-md md:max-w-[80vw] md:max-h-[80vh] lg:max-w-[90vw] lg:max-h-[90vh] xl:max-w-[95vw] xl:max-h-[100vh] pt-24 pb-8 block mx-auto">
+      <img src={imageURLs[4]} srcset={srcsetValue} />
+    </div>
+  );
+};
+
+export default CloudImage;
+---

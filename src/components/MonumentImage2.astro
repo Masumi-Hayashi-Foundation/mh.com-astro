@@ -15,7 +15,7 @@ const imageDetailsSm = `Manzanar Relocation Camp, Monument%0AArtist:Dr. Masumi H
 const imageDetailsMd =
   "Manzanar Relocation Camp, Monument%0AInyo County, California, 1995%0AArtist:Dr. Masumi Hayashi";
 const imageDetailsLg =
-  "Manzanar Relocation Camp, Monument, Inyo County, California, 1995%0AArtist: Dr. Masumi Hayashi%0APanoramic photo collage with Fuji Crystal Archive prints";
+  "Manzanar Relocation Camp, Monument%0A Inyo County, California, 1995%0AArtist: Dr. Masumi Hayashi%0APanoramic photo collage with Fuji Crystal Archive prints";
 
 // const encodedCopySm = encodeURIComponent(copySm);
 const encodedCopyMd = encodeURIComponent(copyMd);
@@ -39,9 +39,9 @@ const encodedImageDetailsLg = encodeImageDetails(imageDetailsLg);
 
 const imageDetailsSmParam = `l_text:futura_20_line_spacing_2:${encodedImageDetailsSm},co_white,g_south_west,x_30,y_-70`;
 const imageDetailsMdParam = `l_text:futura_20_line_spacing_12:${encodedImageDetailsMd},co_white,g_south_east,x_30,y_-40`;
-const imageDetailsLgParam = `l_text:futura_22_line_spacing_12:${encodedImageDetailsLg},co_white,g_south_east,x_30,y_-40`;
+const imageDetailsLgParam = `l_text:futura_22_line_spacing_12:${encodedImageDetailsLg},co_white,g_south_east,x_30,y_-100`;
 
-const imageID = "v1683239294/Manzanar_Relocation_Camp_Monument_so2g5c.jpg";
+const imageID = "Manzanar_Relocation_Camp_Monument_so2g5c.jpg";
 
 const imageURL640 = `${baseURL}/${transformations.join(",")},w_640/${imageDetailsSmParam}/${imageID}`;
 const imageURL768 = `${baseURL}/${transformations.join(",")},w_768/${copyMdParam}/${imageDetailsMdParam}/${imageID}`;
@@ -56,40 +56,16 @@ const srcsetValue = `${imageURL640} 640w, ${imageURL768} 768w, ${imageURL1024} 1
 <img
   src={imageURL1536}
   srcset={srcsetValue}
-  class="rounded-md md:max-w-[80vw] md:max-h-[80vh] lg:max-w-[80vw] lg:max-h-[80vh] xl:max-w-[75vw] xl:max-h-[75vh] py-16"
-  style="max-width: 90vw; max-height: 90vh;"
+  class="rounded-md md:max-w-[80vw] md:max-h-[80vh] lg:max-w-[80vw] lg:max-h-[80vh] xl:max-w-[75vw] xl:max-h-[75vh] pt-24 pb-8"
+  style="max-width: 90vw; max-height: 100vh;"
 />
 
 <style>
   img {
     display: block;
     margin: 0 auto;
-    border-bottom: 10px solid black; /* Default border-bottom for all sizes */
+
     max-width: 100%;
     height: auto;
-  }
-  @media (min-width: 640px) {
-    /* sm breakpoint */
-    img {
-      border-bottom-width: 10px;
-    }
-  }
-  @media (min-width: 768px) {
-    /* md breakpoint */
-    img {
-      border-bottom-width: 20px;
-    }
-  }
-  @media (min-width: 1024px) {
-    /* lg breakpoint */
-    img {
-      border-bottom-width: 30px;
-    }
-  }
-  @media (min-width: 1280px) {
-    /* xl breakpoint */
-    img {
-      border-bottom-width: 35px;
-    }
   }
 </style>
