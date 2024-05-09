@@ -1,7 +1,16 @@
 ---
 // artwork props: title, city, state, year, artist, imageID
-const { title, city, state, year, cloudinaryId, media, size, classNames } =
-  Astro.props;
+const {
+  title,
+  city,
+  state,
+  year,
+  cloudinaryId,
+  media,
+  size,
+  classNames,
+  sourceUrl = "www.masumihayashi.com",
+} = Astro.props;
 
 interface ArtworkProps {
   title: string;
@@ -12,6 +21,7 @@ interface ArtworkProps {
   media: string;
   size: string;
   classNames?: string;
+  sourceUrl?: string;
 }
 
 // The JavaScript part (place this in the script section at the top of your Astro file)
@@ -31,8 +41,8 @@ const currentYear = new Date().getFullYear();
 const altText = `${title} by Dr. Masumi Hayashi`;
 
 // const copySm = ``; // consolidate copyright to image details for small screens
-const mdCopy = `© ${currentYear} Dean Keesey%0Awww.masumihayashi.com`;
-const lgCopy = `© ${currentYear} Dean Keesey. All rights reserved.%0Awww.masumihayashi.com`;
+const mdCopy = `© ${currentYear} Dean Keesey%0A${sourceUrl}`;
+const lgCopy = `© ${currentYear} Dean Keesey. All rights reserved.%0A${sourceUrl}`;
 
 // copyright details
 
