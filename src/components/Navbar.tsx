@@ -20,7 +20,7 @@ const Navbar = () => {
         className= "nav-links flex flex-col hidden md:flex-row md:space-x-4 md:flex mr-2 md:mr-24"
       >
         <li>
-          <a href="#" onClick={() => setInternmentCampsDropdownOpen(!isInternmentCampsDropdownOpen)}>
+          <a href="/internment-camps" onClick={() => setInternmentCampsDropdownOpen(!isInternmentCampsDropdownOpen)}>
             Internment Camps
           </a>
           <ul className={`dropdown ${isInternmentCampsDropdownOpen ? "block" : "hidden"}`}>

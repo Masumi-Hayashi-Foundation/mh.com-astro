@@ -1,7 +1,7 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import CloudinaryImage from "../components/CloudinaryImage.astro";
-import MonumentImage3 from "../components/MonumentImage3.astro";
+import CloudinaryImage from "../components/CloudinaryImage.astro";
 
 // component props expected:  title, media, city, state, year, cloudinaryId,
 
@@ -18,12 +18,13 @@ const manzanarMonument = {
 ---
 
 <MainLayout>
-  <MonumentImage3
+  <CloudinaryImage
     title={manzanarMonument.title}
     city={manzanarMonument.city}
     state={manzanarMonument.state}
     year={manzanarMonument.year}
     cloudinaryId={manzanarMonument.cloudinaryId}
     media={manzanarMonument.media}
+    size={manzanarMonument.size}
   />
 </MainLayout>
