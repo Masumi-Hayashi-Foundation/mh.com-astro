@@ -6,9 +6,9 @@ const Navbar = () => {
   const [isResourcesDropdownOpen, setResourcesDropdownOpen] = useState(false);
 
   return (
-    <nav className="flex items-center flex-column justify-between py-4">
+    <nav className="flex items-center flex-column justify-between py-4" aria-label="Primary">
       <div className="logo ml-2 md:ml-24">
-        <a href="/">Masumi Hayashi</a>
+        <a href="/" aria-label="Go Home">Masumi Hayashi</a>
       </div>
 
       <div className="md:hidden">
