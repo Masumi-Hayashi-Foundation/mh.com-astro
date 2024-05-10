@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import TestLayout from "../layouts/TestLayout.astro";
 import CloudinaryImage from "../components/CloudinaryImage.astro";
 
 // component props expected:  title, media, city, state, year, cloudinaryId,
@@ -11,12 +12,14 @@ const manzanarMonument = {
   city: "Inyo County",
   state: "California",
   country: "USA",
-  cloudinaryId: "Manzanar_Concentration_Camp_Monument_so2g5c.jpg",
+  cloudinaryId: "internment-camps/Manzanar_Internment_Camp_Monument_so2g5c.jpg",
   size: '20" x 40"',
 };
+
+// layouts can have one or more slots!
 ---
 
-<MainLayout>
+<TestLayout>
   <CloudinaryImage
     title={manzanarMonument.title}
     city={manzanarMonument.city}
@@ -26,4 +29,8 @@ const manzanarMonument = {
     media={manzanarMonument.media}
     size={manzanarMonument.size}
   />
-</MainLayout>
+
+  <p slot="test-slot" class="pt-36 text-center">
+    This is some randome content to test the test-slot.
+  </p>
+</TestLayout>

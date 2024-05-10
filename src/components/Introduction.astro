@@ -4,7 +4,7 @@ import CloudinaryImage from "./CloudinaryImage.astro";
 const { classNames } = Astro.props;
 
 const rameswaramData = {
-  cloudinaryId: "rameswaram-1_baqkjr",
+  cloudinaryId: "sacred-architectures/rameswaram-1_baqkjr",
   title: "Rameswaram Temple, No.1",
   media: "Panoramic photo collage with Fuji Crystal archive prints",
   year: "2004",
@@ -24,6 +24,7 @@ const rameswaramData = {
     cloudinaryId={rameswaramData.cloudinaryId}
     media={rameswaramData.media}
     classNames={classNames}
+    size={rameswaramData.size}
   />
   <section class="prose px-6 sm:px-8">
     <h1 class="text-2xl font-bold my-6">Welcome to MasumiHayashi.com</h1>

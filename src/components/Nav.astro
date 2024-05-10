@@ -1,0 +1,30 @@
+---
+// component imports
+import Link from "./Link.astro";
+
+// data imports
+import navData from "../data/navData";
+---
+
+<nav
+  class="flex items-center flex-column justify-between py-4"
+  aria-label="Primary"
+>
+  <div class="logo ml-6 md:ml-24">
+    <a href="/" class="logomark" aria-label="Go home">Masumi<br />Hayashi </a>
+  </div>
+  <ul class="nav-links flex flex-row space-between md:space-x-4 mr-2 md:mr-24">
+    {
+      navData.map((item) => (
+        <Link
+          text={item.name}
+          href={item.path}
+          style="primary"
+          isFilled={false}
+          data-navLink
+          classes="text-sm mr-6 md:text-base"
+        />
+      ))
+    }
+  </ul>
+</nav>
