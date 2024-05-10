@@ -26,7 +26,7 @@ const Navbar = () => {
           <ul className={`dropdown ${isInternmentCampsDropdownOpen ? "block" : "hidden"}`}>
             <li>
               <a href="/japanese-american-internment-camps">
-                Japanese-American Internment Camps
+                Japanese-American Concentration Camps
               </a>
             </li>
             <li>

@@ -11,11 +11,11 @@ const currentYear = new Date().getFullYear();
 const copyMd = `© ${currentYear} Dean Keesey%0Awww.masumihayashi.com`;
 const copyLg = `© ${currentYear} Dean Keesey. All rights reserved.%0Awww.masumihayashi.com`;
 
-const imageDetailsSm = `Manzanar Relocation Camp, Monument%0AArtist:Dr. Masumi Hayashi%0A© ${currentYear} Dean Keesey`;
+const imageDetailsSm = `Manzanar Concentration Camp, Monument%0AArtist:Dr. Masumi Hayashi%0A© ${currentYear} Dean Keesey`;
 const imageDetailsMd =
-  "Manzanar Relocation Camp, Monument%0AInyo County, California, 1995%0AArtist:Dr. Masumi Hayashi";
+  "Manzanar Concentration Camp, Monument%0AInyo County, California, 1995%0AArtist:Dr. Masumi Hayashi";
 const imageDetailsLg =
-  "Manzanar Relocation Camp, Monument%0A Inyo County, California, 1995%0AArtist: Dr. Masumi Hayashi%0APanoramic photo collage with Fuji Crystal Archive prints";
+  "Manzanar Concentration Camp, Monument%0A Inyo County, California, 1995%0AArtist: Dr. Masumi Hayashi%0APanoramic photo collage with Fuji Crystal Archive prints";
 
 // const encodedCopySm = encodeURIComponent(copySm);
 const encodedCopyMd = encodeURIComponent(copyMd);
@@ -41,7 +41,7 @@ const imageDetailsSmParam = `l_text:futura_20_line_spacing_2:${encodedImageDetai
 const imageDetailsMdParam = `l_text:futura_20_line_spacing_12:${encodedImageDetailsMd},co_white,g_south_east,x_30,y_-40`;
 const imageDetailsLgParam = `l_text:futura_22_line_spacing_12:${encodedImageDetailsLg},co_white,g_south_east,x_30,y_-100`;
 
-const imageID = "Manzanar_Relocation_Camp_Monument_so2g5c.jpg";
+const imageID = "Manzanar_Concentration_Camp_Monument_so2g5c.jpg";
 
 const imageURL640 = `${baseURL}/${transformations.join(",")},w_640/${imageDetailsSmParam}/${imageID}`;
 const imageURL768 = `${baseURL}/${transformations.join(",")},w_768/${copyMdParam}/${imageDetailsMdParam}/${imageID}`;
