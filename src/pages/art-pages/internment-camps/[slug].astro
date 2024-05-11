@@ -79,5 +79,20 @@ if (!artwork) {
         </figcaption>
       </section>
     </article>
+    <!-- Render a list of all individual page URLs in the collection -->
+    <footer>
+      <h2>Other Artworks in the Collection</h2>
+      <ul>
+        {
+          allArtPagesEntries.map((entry) => (
+            <li>
+              <a href={`/art-pages/internment-camps/${entry.slug}`}>
+                {entry.data.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </footer>
   </body>
 </html>
