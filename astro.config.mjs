@@ -5,11 +5,16 @@ import tailwind from "@astrojs/tailwind";
 
 import icon from "astro-icon";
 import mdx from "@astrojs/mdx";
-
 import devtoolBreakpoints from "astro-devtool-breakpoints";
+import partytown from "@astrojs/partytown";
+
 
 // https://astro.build/config
 export default defineConfig({
   renderers: [react()],
-  integrations: [tailwind(), react(), icon(), mdx(), devtoolBreakpoints()]
+  integrations: [tailwind(), react(), icon(), mdx(), devtoolBreakpoints(), partytown({
+      config: {
+        forward: ["dataLayer.push"],
+    }
+})]
 });

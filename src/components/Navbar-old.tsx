@@ -2,7 +2,7 @@
 
 import HamburgerMenu from "./HamburgerMenu"; // Assume this is your custom SVG hamburger component
 const Navbar = () => {
-  const [isInternmentCampsDropdownOpen, setInternmentCampsDropdownOpen] = useState(false);
+  const [isInternment CampsDropdownOpen, setInternment CampsDropdownOpen] = useState(false);
   const [isAboutArtistDropdownOpen, setAboutArtistDropdownOpen] = useState(false);
   const [isResourcesDropdownOpen, setResourcesDropdownOpen] = useState(false);
 
@@ -21,10 +21,10 @@ const Navbar = () => {
         className= "nav-links flex flex-col hidden md:flex-row md:space-x-4 md:flex mr-2 md:mr-24"
       >
         <li>
-          <a href="/internment-camps" onClick={() => setInternmentCampsDropdownOpen(!isInternmentCampsDropdownOpen)}>
+          <a href="/internment-camps" onClick={() => setInternment CampsDropdownOpen(!isInternment CampsDropdownOpen)}>
             Internment Camps
           </a>
-          <ul className={`dropdown ${isInternmentCampsDropdownOpen ? "block" : "hidden"}`}>
+          <ul className={`dropdown ${isInternment CampsDropdownOpen ? "block" : "hidden"}`}>
             <li>
               <a href="/japanese-american-internment-camps">
                 Japanese-American Concentration Camps
