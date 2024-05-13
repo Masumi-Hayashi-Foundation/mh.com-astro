@@ -3,7 +3,6 @@
 import CloudinaryImage from "../../../components/CloudinaryImage.astro";
 import { getCollection } from "astro:content";
 import MainLayout from "../../../layouts/MainLayout.astro";
-import MainHead from "../../../layouts/MainHead.astro";
 
 // Define TypeScript interface for stronger type checks (if your project supports TypeScript)
 interface ArtworkEntry {
@@ -54,11 +53,6 @@ if (!artwork) {
 
 <MainLayout title={artwork.data.title} description={artwork.data.altTag}>
   <article>
-    <h1
-      class="text-2xl italic text-center text-museum-white bg-museum-black pt-16 pb-8"
-    >
-      {artwork.data.name}
-    </h1>
     <section>
       <CloudinaryImage
         cloudinaryId={artwork.data.cloudinaryId}
@@ -73,25 +67,49 @@ if (!artwork) {
         size={artwork.data.size}
         inventory={artwork.data.inventory}
       />
-      <figcaption>
+      <!-- <figcaption>
         Located in {artwork.data.city}, {artwork.data.state}, {
           artwork.data.country
         }. Size: {artwork.data.size}.
-      </figcaption>
+      </figcaption> -->
     </section>
   </article>
   <!-- Render a list of all individual page URLs in the collection -->
-  <footer class="flex flex-col">
-    <h2>Other Artwork in the Collection</h2>
-    <ul>
+  <footer
+    class="flex flex-col justify-center items-center pt-16 font-robotoCondensed"
+  >
+    <h2 class="text-xl py-8">Japanese-American Internment Camps</h2>
+    <ul class="flex flex-col items-center">
       {
-        allArtPagesEntries.map((entry) => (
-          <li>
-            <a href={`/artwork/internment-camps/${entry.slug}`}>
-              {entry.data.title}
-            </a>
-          </li>
-        ))
+        allArtPagesEntries
+          .filter(
+            (entry) =>
+              entry.data.series === "Japanese-American Internment Camps"
+          )
+          .map((entry) => (
+            <li class=" self-start ml-8">
+              <a href={`/artwork/internment-camps/${entry.slug}`}>
+                {entry.data.title}
+              </a>
+            </li>
+          ))
+      }
+    </ul>
+    <h2 class="text-xl py-8">Japanese-Canadian Prisoner of War Camps</h2>
+    <ul class="flex flex-col justify-center pb-8">
+      {
+        allArtPagesEntries
+          .filter(
+            (entry) =>
+              entry.data.series === "Japanese-Canadian Internment Camps"
+          )
+          .map((entry) => (
+            <li class="px-2">
+              <a href={`/artwork/internment-camps/${entry.slug}`}>
+                {entry.data.title}
+              </a>
+            </li>
+          ))
       }
     </ul>
   </footer>

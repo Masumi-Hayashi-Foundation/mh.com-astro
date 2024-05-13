@@ -18,5 +18,18 @@ body {
 }
 
 
+a {
+  color: theme('colors.link-normal');
+  text-decoration: none;
+}
+
+a:hover {
+  color: theme('colors.link-hover');
+  text-decoration: underline;
+}
+
+a:visited {
+  color: theme('colors.link-visited');
+}
 
 
