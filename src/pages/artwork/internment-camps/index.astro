@@ -1,0 +1,53 @@
+---
+// Import necessary components and utilities
+import { getCollection } from "astro:content";
+import CloudinaryImage from "../../../components/CloudinaryImage.astro";
+import MainLayout from "../../../layouts/MainLayout.astro";
+
+// Fetch all entries from the "artwork" collection
+const allEntries = await getCollection("artwork");
+
+// Filter entries by series
+const japaneseAmericanCamps = allEntries.filter(entry => entry.data.series === "Japanese-American Internment Camps");
+const japaneseCanadianCamps = allEntries.filter(entry => entry.data.series === "Japanese-Canadian Internment Camps");
+---
+
+<MainLayout title="Internment Camps">
+  <section class="mb-16">
+    <h1 class="text-white text-center bg-museum-black text-2xl py-8">Japanese-American Internment Camps</h1>
+    {japaneseAmericanCamps.map(camp => (
+      <article class="my-16">
+        <CloudinaryImage
+          cloudinaryId={camp.data.cloudinaryId}
+          title={camp.data.title}
+          name={camp.data.name}
+          city={camp.data.city}
+          state={camp.data.state}
+          country={camp.data.country}
+          media={camp.data.media}
+          year={camp.data.year}
+          size={camp.data.size}
+        />
+        <!-- Additional demographic information and map here -->
+      </article>
+    ))}
+  </section>
+  <section>
+    <h1>Japanese-Canadian Internment Camps</h1>
+    {japaneseCanadianCamps.map(camp => (
+      <article>
+        <CloudinaryImage
+          cloudinaryId={camp.data.cloudinaryId}
+          title={camp.data.title}
+          city={camp.data.city}
+          state={camp.data.state}
+          country={camp.data.country}
+          media={camp.data.media}
+          year={camp.data.year}
+          size={camp.data.size}
+        />
+        <!-- Additional demographic information and map here -->
+      </article>
+    ))}
+  </section>
+</MainLayout>
