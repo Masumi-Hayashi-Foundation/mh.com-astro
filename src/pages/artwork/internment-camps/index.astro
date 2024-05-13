@@ -13,8 +13,8 @@ const japaneseCanadianCamps = allEntries.filter(entry => entry.data.series === "
 ---
 
 <MainLayout title="Internment Camps">
-  <section class="mb-16">
-    <h1 class="text-white text-center bg-museum-black text-2xl py-8">Japanese-American Internment Camps</h1>
+  <section class="mb-16 bg-museum-black">
+    <h1 class="text-museum-white text-center  text-2xl pt-4">Japanese-American Internment Camps</h1>
     {japaneseAmericanCamps.map(camp => (
       <article class="my-16">
         <CloudinaryImage
@@ -27,18 +27,20 @@ const japaneseCanadianCamps = allEntries.filter(entry => entry.data.series === "
           media={camp.data.media}
           year={camp.data.year}
           size={camp.data.size}
+          figcaptionClasses="pb-16"
         />
         <!-- Additional demographic information and map here -->
       </article>
     ))}
   </section>
   <section>
-    <h1>Japanese-Canadian Internment Camps</h1>
+    <h1 class="text-museum-white text-center bg-museum-black text-2xl py-8">Japanese-Canadian Internment Camps</h1>
     {japaneseCanadianCamps.map(camp => (
       <article>
         <CloudinaryImage
           cloudinaryId={camp.data.cloudinaryId}
           title={camp.data.title}
+          name={camp.data.name}
           city={camp.data.city}
           state={camp.data.state}
           country={camp.data.country}

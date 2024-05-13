@@ -12,6 +12,7 @@ const {
   size,
   classNames,
   sourceUrl = "www.masumihayashi.com",
+  figcaptionClasses,
 } = Astro.props;
 
 interface ArtworkProps {
@@ -26,6 +27,7 @@ interface ArtworkProps {
   size: string;
   classNames?: string;
   sourceUrl?: string;
+  figcaptionClasses?: string;
 }
 
 // The JavaScript part (place this in the script section at the top of your Astro file)
@@ -111,7 +113,9 @@ const srcsetValue = `${imageURL640} 640w, ${imageURL768} 768w, ${imageURL1024} 1
     alt={altText}
   />
 </div>
-<figcaption class="text-museum-black text-sm py-2 sm:mx-6 text-center">
+<figcaption
+  class=`text-museum-black bg-museum-white text-sm py-2 sm:mx-6 text-center ${figcaptionClasses}`
+>
   <em>{title}</em>, {year}, {media}, {size}<br />
   Artist: Dr. Masumi Hayashi
 </figcaption>
