@@ -2,8 +2,10 @@
 // artwork props: title, city, state, year, artist, cloudinaryId
 const {
   title,
+  name,
   city,
   state,
+  country,
   year,
   cloudinaryId,
   media,
@@ -14,8 +16,10 @@ const {
 
 interface ArtworkProps {
   title: string;
+  name: string;
   city: string;
   state: string;
+  country: string;
   year: string;
   cloudinaryId: string;
   media: string;
@@ -45,7 +49,6 @@ const mdCopy = `© ${currentYear} Dean Keesey%0A${sourceUrl}`;
 const lgCopy = `© ${currentYear} Dean Keesey. All rights reserved.%0A${sourceUrl}`;
 
 // copyright details
-
 // const encodedCopySm = encodeURIComponent(copySm);
 const encodedmdCopy = encodeURIComponent(mdCopy);
 const encodedlgCopy = encodeURIComponent(lgCopy);
@@ -63,7 +66,7 @@ const encodeImageDetails = (details: string) => {
 };
 
 // image details title
-const imageTitle = `${title}`;
+const imageTitle = `${name}`;
 const encodedImageTitle = encodeImageDetails(imageTitle); // eg: Manzanar, Monument
 
 const smImageTitleParam = `l_text:futura_20_italic_line_spacing_1:${encodedImageTitle},co_white,g_south_west,x_30,y_-20`;

@@ -22,6 +22,6 @@ const artworksCollection = defineCollection({
 });
 // Export a single `collections` object to register your collection(s)
 export const collections = {
-  artworks: artworksCollection,
+  art: artworksCollection,
 };
 

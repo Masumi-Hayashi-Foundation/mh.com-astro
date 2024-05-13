@@ -1,0 +1,98 @@
+---
+// Import necessary components and utilities
+import CloudinaryImage from "../../../components/CloudinaryImage.astro";
+import { getCollection } from "astro:content";
+import MainLayout from "../../../layouts/MainLayout.astro";
+import MainHead from "../../../layouts/MainHead.astro";
+
+// Define TypeScript interface for stronger type checks (if your project supports TypeScript)
+interface ArtworkEntry {
+  data: {
+    slug: string;
+    title: string;
+    name: string;
+    cloudinaryId: string;
+    altTag: string;
+    media: string;
+    year: string;
+    size: string;
+    inventory: string;
+    city: string;
+    state: string;
+    country: string;
+  };
+}
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("artwork");
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+// Fetch all entries from the "art-pages" collection
+const allArtPagesEntries = await getCollection("artwork");
+console.log(allArtPagesEntries);
+
+// Extract the `slug` parameter from the URL
+const params = Astro.params;
+console.log(params);
+
+// Find the specific artwork entry based on the slug
+const artwork = allArtPagesEntries.find((entry: any) => {
+  return entry.slug === params.slug;
+}) as ArtworkEntry | undefined;
+
+console.log(artwork);
+
+// Throw an error if no artwork is found
+if (!artwork) {
+  throw new Error("Artwork not found");
+}
+---
+
+<MainLayout title={artwork.data.title} description={artwork.data.altTag}>
+  <article>
+    <h1
+      class="text-2xl italic text-center text-museum-white bg-museum-black pt-16 pb-8"
+    >
+      {artwork.data.name}
+    </h1>
+    <section>
+      <CloudinaryImage
+        cloudinaryId={artwork.data.cloudinaryId}
+        alt={artwork.data.altTag}
+        title={artwork.data.title}
+        name={artwork.data.name}
+        city={artwork.data.city}
+        state={artwork.data.state}
+        country={artwork.data.country}
+        media={artwork.data.media}
+        year={artwork.data.year}
+        size={artwork.data.size}
+        inventory={artwork.data.inventory}
+      />
+      <figcaption>
+        Located in {artwork.data.city}, {artwork.data.state}, {
+          artwork.data.country
+        }. Size: {artwork.data.size}.
+      </figcaption>
+    </section>
+  </article>
+  <!-- Render a list of all individual page URLs in the collection -->
+  <footer class="flex flex-col">
+    <h2>Other Artwork in the Collection</h2>
+    <ul>
+      {
+        allArtPagesEntries.map((entry) => (
+          <li>
+            <a href={`/artwork/internment-camps/${entry.slug}`}>
+              {entry.data.title}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </footer>
+</MainLayout>
