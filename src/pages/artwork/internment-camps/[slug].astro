@@ -3,6 +3,7 @@
 import CloudinaryImage from "../../../components/CloudinaryImage.astro";
 import { getCollection } from "astro:content";
 import MainLayout from "../../../layouts/MainLayout.astro";
+import { ViewTransitions } from "astro:transitions";
 
 // Define TypeScript interface for stronger type checks (if your project supports TypeScript)
 interface ArtworkEntry {
@@ -54,7 +55,10 @@ if (!artwork) {
 <MainLayout title={artwork.data.title} description={artwork.data.altTag}>
   <article>
     <section>
-      <a href=`/artwork/internment-camps/#${artwork.data.slug}`>
+      <a
+        href=`/artwork/internment-camps/#${artwork.data.slug}`
+        transition:persist={artwork.data.slug}
+      >
         <CloudinaryImage
           cloudinaryId={artwork.data.cloudinaryId}
           alt={artwork.data.altTag}
