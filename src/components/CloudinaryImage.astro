@@ -47,8 +47,8 @@ const currentYear = new Date().getFullYear();
 const altText = `${title} by Dr. Masumi Hayashi`;
 
 // const copySm = ``; // consolidate copyright to image details for small screens
-const mdCopy = `© ${currentYear} Dean Keesey%0A${sourceUrl}`;
-const lgCopy = `© ${currentYear} Dean Keesey. All rights reserved.%0A${sourceUrl}`;
+const mdCopy = `${sourceUrl}%0Awww.MasumiHayashiFoundation.org%0A© ${currentYear} Dean Keesey`;
+const lgCopy = `%0A${sourceUrl}%0Awww.MasumiHayashiFoundation.org%0A© ${currentYear} Dean Keesey. All rights reserved.`;
 
 // copyright details
 // const encodedCopySm = encodeURIComponent(copySm);
@@ -56,8 +56,8 @@ const encodedmdCopy = encodeURIComponent(mdCopy);
 const encodedlgCopy = encodeURIComponent(lgCopy);
 
 // const copySmParam = `l_text:futura_16_line_spacing_12:${encodedCopySm},co_white,g_south_east,x_30,y_-20`;
-const mdCopyParam = `l_text:futura_16_line_spacing_12:${encodedmdCopy},co_white,g_south_east,x_50,y_-60`;
-const lgCopyParam = `l_text:futura_16_line_spacing_12:${encodedlgCopy},co_white,g_south_east,x_50,y_-60`;
+const mdCopyParam = `l_text:futura_16_line_spacing_12:${encodedmdCopy},co_white,g_south_east,x_50,y_-100`;
+const lgCopyParam = `l_text:futura_16_line_spacing_12:${encodedlgCopy},co_white,g_south_east,x_50,y_-100`;
 
 const encodeImageDetails = (details: string) => {
   return details
@@ -73,7 +73,7 @@ const encodedImageTitle = encodeImageDetails(imageTitle); // eg: Manzanar, Monum
 
 const smImageTitleParam = `l_text:futura_20_italic_line_spacing_1:${encodedImageTitle},co_white,g_south_west,x_30,y_-20`;
 const mdImageTitleParam = `l_text:futura_20_italic_line_spacing_1:${encodedImageTitle},co_white,g_south_west,x_30,y_40`;
-const lgImageTitleParam = `l_text:futura_22_italic_line_spacing_1:${encodedImageTitle},co_white,g_south_west,x_30,y_40`;
+const lgImageTitleParam = `l_text:futura_20_italic_line_spacing_1:${encodedImageTitle},co_white,g_south_west,x_30,y_40`;
 
 // image details
 const smImageDetails = `Artist:Dr. Masumi Hayashi%0A© ${currentYear} Dean Keesey`;
