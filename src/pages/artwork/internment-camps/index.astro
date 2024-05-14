@@ -27,8 +27,8 @@ const japaneseCanadianCamps = allEntries.filter(entry => entry.data.series === "
 <ScrollSnapLayout title="Internment Camps" classes="">
     <h1 class="text-museum-white bg-museum-black text-center  text-2xl pt-4">Japanese-American Internment Camps</h1>
     {japaneseAmericanCamps.map(camp => (
-      <article class="bg-museum-black text-museum-white py-16 snap-item snap-start flex flex-col justify-center items-center">
-        <a href="#">
+      <article id={camp.data.slug} class="bg-museum-black text-museum-white py-16 snap-item snap-start flex flex-col justify-center items-center">
+        <a href={`/artwork/internment-camps/${camp.data.slug}`}>
 
           <CloudinaryImage
             cloudinaryId={camp.data.cloudinaryId}

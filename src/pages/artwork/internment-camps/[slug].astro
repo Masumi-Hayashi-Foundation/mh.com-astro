@@ -54,19 +54,21 @@ if (!artwork) {
 <MainLayout title={artwork.data.title} description={artwork.data.altTag}>
   <article>
     <section>
-      <CloudinaryImage
-        cloudinaryId={artwork.data.cloudinaryId}
-        alt={artwork.data.altTag}
-        title={artwork.data.title}
-        name={artwork.data.name}
-        city={artwork.data.city}
-        state={artwork.data.state}
-        country={artwork.data.country}
-        media={artwork.data.media}
-        year={artwork.data.year}
-        size={artwork.data.size}
-        inventory={artwork.data.inventory}
-      />
+      <a href=`/artwork/internment-camps/#${artwork.data.slug}`>
+        <CloudinaryImage
+          cloudinaryId={artwork.data.cloudinaryId}
+          alt={artwork.data.altTag}
+          title={artwork.data.title}
+          name={artwork.data.name}
+          city={artwork.data.city}
+          state={artwork.data.state}
+          country={artwork.data.country}
+          media={artwork.data.media}
+          year={artwork.data.year}
+          size={artwork.data.size}
+          inventory={artwork.data.inventory}
+        />
+      </a>
       <!-- <figcaption>
         Located in {artwork.data.city}, {artwork.data.state}, {
           artwork.data.country
