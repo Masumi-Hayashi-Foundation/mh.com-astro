@@ -12,11 +12,11 @@ import Footer from "../components/Footer.astro";
   <body class="bg-museum-beige text-museum-dark text-md font-sans w-screen">
     <!-- scroll container -->
     <div class="overflow-y-scroll snap-y snap-mandatory h-screen">
-      <Header />
+      <Header classes="snap-item snap-start" />
 
       <slot />
 
-      <Footer />
+      <Footer classes="snap-item snap-start" />
     </div>
   </body>
 
