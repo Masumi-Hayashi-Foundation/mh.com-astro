@@ -2,7 +2,7 @@
 // Import necessary components and utilities
 import { getCollection } from "astro:content";
 import CloudinaryImage from "../../../components/CloudinaryImage.astro";
-import MainLayout from "../../../layouts/MainLayout.astro";
+import ScrollSnapLayout from "../../../layouts/ScrollSnapLayout.astro";
 
 // Fetch all entries from the "artwork" collection
 const allEntries = await getCollection("artwork");
@@ -11,12 +11,23 @@ const allEntries = await getCollection("artwork");
 const japaneseAmericanCamps = allEntries.filter(entry => entry.data.series === "Japanese-American Internment Camps");
 const japaneseCanadianCamps = allEntries.filter(entry => entry.data.series === "Japanese-Canadian Internment Camps");
 ---
+  <style>
+    .snap-container {
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+      height: 100vh; /* Full viewport height */
+    }
+    .snap-item {
+      scroll-snap-align: center;
+      height: 100vh; /* Full viewport height */
+      min-height: 100vh; /* Minimum height to ensure it covers full screen */
+    }
+  </style>
 
-<MainLayout title="Internment Camps">
-  <section class="mb-16 bg-museum-black">
-    <h1 class="text-museum-white text-center  text-2xl pt-4">Japanese-American Internment Camps</h1>
+<ScrollSnapLayout title="Internment Camps" classes="">
+    <h1 class="text-museum-white bg-museum-black text-center  text-2xl pt-4">Japanese-American Internment Camps</h1>
     {japaneseAmericanCamps.map(camp => (
-      <article class="my-16">
+      <article class="bg-museum-black text-museum-white py-16 snap-item snap-start flex flex-col justify-center items-center">
         <CloudinaryImage
           cloudinaryId={camp.data.cloudinaryId}
           title={camp.data.title}
@@ -27,16 +38,15 @@ const japaneseCanadianCamps = allEntries.filter(entry => entry.data.series === "
           media={camp.data.media}
           year={camp.data.year}
           size={camp.data.size}
-          figcaptionClasses="pb-16"
+          figcaptionClasses="text-museum-white bg-museum-black"
         />
         <!-- Additional demographic information and map here -->
       </article>
     ))}
-  </section>
-  <section>
-    <h1 class="text-museum-white text-center bg-museum-black text-2xl py-8">Japanese-Canadian Internment Camps</h1>
+
+    <h1 class="text-museum-white bg-museum-black text-center  text-2xl pt-4">Japanese-Canadian Internment Camps</h1>
     {japaneseCanadianCamps.map(camp => (
-      <article>
+      <article class="bg-museum-black text-museum-white py-16 snap-item snap-start flex flex-col justify-center items-center">
         <CloudinaryImage
           cloudinaryId={camp.data.cloudinaryId}
           title={camp.data.title}
@@ -51,5 +61,5 @@ const japaneseCanadianCamps = allEntries.filter(entry => entry.data.series === "
         <!-- Additional demographic information and map here -->
       </article>
     ))}
-  </section>
-</MainLayout>
+
+</ScrollSnapLayout>
