@@ -5,17 +5,19 @@ import MainHead from "./MainHead.astro";
 import Footer from "../components/Footer.astro";
 ---
 
-<html lang="en">
+<html lang="en" transition:animate="none">
   <MainHead />
   <body class="bg-museum-beige text-museum-dark text-md font-sans w-screen">
     <!-- scroll container -->
     <div class="overflow-y-scroll snap-y snap-mandatory h-screen">
       <Header classes="snap-item snap-start" />
 
-      <slot />
-
+      <main transition:animate="fade">
+        <slot />
+      </main>
       <Footer classes="snap-item snap-start mt-16" />
     </div>
+
     <style>
       main {
         margin-bottom: 80px;

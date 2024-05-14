@@ -1,4 +1,7 @@
 ---
+import { fade } from "astro:transitions";
+import { slide } from "astro:transitions";
+
 // artwork props: title, city, state, year, artist, cloudinaryId
 const {
   title,
@@ -13,6 +16,7 @@ const {
   classNames,
   sourceUrl = "www.masumihayashi.com",
   figcaptionClasses,
+  transition,
 } = Astro.props;
 
 interface ArtworkProps {
@@ -28,6 +32,7 @@ interface ArtworkProps {
   classNames?: string;
   sourceUrl?: string;
   figcaptionClasses?: string;
+  transition?: string;
 }
 
 // The JavaScript part (place this in the script section at the top of your Astro file)
@@ -88,36 +93,41 @@ const smImageDetailsParam = `l_text:futura_20_line_spacing_2:${encodedSmImageDet
 const mdImageDetailsParam = `l_text:futura_20_line_spacing_2:${encodedMdImageDetails},co_white,g_south_west,x_30,y_-20`;
 const lgImageDetailsParam = `l_text:futura_22_line_spacing_2:${encodedLgImageDetails},co_white,g_south_west,x_30,y_-60`;
 
-const imageURL640 = `${baseURL}/${transformations.join(",")},w_640/${smImageTitleParam}/${smImageDetailsParam}/${imageID}${cacheBuster}`;
+const imageURL640 = `${baseURL}/${transformations.join(",")},w_640/${smImageTitleParam}/${smImageDetailsParam}/${imageID}`;
 
-const imageURL768 = `${baseURL}/${transformations.join(",")},w_768/${mdCopyParam}/${mdImageTitleParam}/${mdImageDetailsParam}/${imageID}${cacheBuster}`;
+const imageURL768 = `${baseURL}/${transformations.join(",")},w_768/${mdCopyParam}/${mdImageTitleParam}/${mdImageDetailsParam}/${imageID}`;
 
-const imageURL1024 = `${baseURL}/${transformations.join(",")},w_1024/${mdCopyParam}/${mdImageTitleParam}/${mdImageDetailsParam}/${imageID}${cacheBuster}`;
+const imageURL1024 = `${baseURL}/${transformations.join(",")},w_1024/${mdCopyParam}/${mdImageTitleParam}/${mdImageDetailsParam}/${imageID}`;
 
-const imageURL1280 = `${baseURL}/${transformations.join(",")},w_1280/${lgCopyParam}/${lgImageTitleParam}/${lgImageDetailsParam}/${imageID}${cacheBuster}`;
+const imageURL1280 = `${baseURL}/${transformations.join(",")},w_1280/${lgCopyParam}/${lgImageTitleParam}/${lgImageDetailsParam}/${imageID}`;
 
-const imageURL1536 = `${baseURL}/${transformations.join(",")},w_1536/${lgCopyParam}/${lgImageTitleParam}/${lgImageDetailsParam}/${imageID}${cacheBuster}`;
+const imageURL1536 = `${baseURL}/${transformations.join(",")},w_1536/${lgCopyParam}/${lgImageTitleParam}/${lgImageDetailsParam}/${imageID}`;
 
-const imageURL1920 = `${baseURL}/${transformations.join(",")},w_1920/${lgCopyParam}/${lgImageTitleParam}/${lgImageDetailsParam}/${imageID}${cacheBuster}`;
+const imageURL1920 = `${baseURL}/${transformations.join(",")},w_1920/${lgCopyParam}/${lgImageTitleParam}/${lgImageDetailsParam}/${imageID}`;
 
 const srcsetValue = `${imageURL640} 640w, ${imageURL768} 768w, ${imageURL1024} 1024w, ${imageURL1280} 1280w, ${imageURL1536} 1536w, ${imageURL1920} 1920w`;
 ---
 
 <div
-  class=`w-full flex justify-center items-center bg-museum-black pt-8 ${classNames}`
+  transition:name=`${name} image transition`
+  transition:persist
+  transition:animate={fade({ duration: "0.4s" })}
 >
-  <img
-    src={imageURL1536}
-    srcset={srcsetValue}
-    class="rounded-md max-w-[95vw] max-h-[95vh] border-b-64"
-    alt={altText}
-  />
+  <div
+    class=`w-full flex justify-center items-center bg-museum-black ${classNames}`
+  >
+    <img
+      src={imageURL1536}
+      srcset={srcsetValue}
+      class="rounded-md max-w-[95vw] max-h-[95vh] border-b-64"
+      alt={altText}
+    />
+  </div>
+  <figcaption class=`text-sm py-2 sm:px-6 text-center ${figcaptionClasses}`>
+    <em>{title}</em>, {year}, {media}, {size}<br />
+    Artist: Dr. Masumi Hayashi
+  </figcaption>
 </div>
-<figcaption class=`text-sm py-2 sm:mx-6 text-center ${figcaptionClasses}`>
-  <em>{title}</em>, {year}, {media}, {size}<br />
-  Artist: Dr. Masumi Hayashi
-</figcaption>
-
 <style>
   @media (max-width: 767px) {
     img {

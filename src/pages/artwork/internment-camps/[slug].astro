@@ -4,6 +4,7 @@ import CloudinaryImage from "../../../components/CloudinaryImage.astro";
 import { getCollection } from "astro:content";
 import MainLayout from "../../../layouts/MainLayout.astro";
 import { ViewTransitions } from "astro:transitions";
+import { string } from "astro/zod";
 
 // Define TypeScript interface for stronger type checks (if your project supports TypeScript)
 interface ArtworkEntry {
@@ -53,12 +54,9 @@ if (!artwork) {
 ---
 
 <MainLayout title={artwork.data.title} description={artwork.data.altTag}>
-  <article>
-    <section>
-      <a
-        href=`/artwork/internment-camps/#${artwork.data.slug}`
-        transition:persist={artwork.data.slug}
-      >
+  <article class="bg-museum-black">
+    <section class="pt-16">
+      <a href={`/artwork/internment-camps/#${artwork.data.slug}`}>
         <CloudinaryImage
           cloudinaryId={artwork.data.cloudinaryId}
           alt={artwork.data.altTag}
@@ -71,13 +69,9 @@ if (!artwork) {
           year={artwork.data.year}
           size={artwork.data.size}
           inventory={artwork.data.inventory}
+          figcaptionClasses="text-museum-white bg-museum-black"
         />
       </a>
-      <!-- <figcaption>
-        Located in {artwork.data.city}, {artwork.data.state}, {
-          artwork.data.country
-        }. Size: {artwork.data.size}.
-      </figcaption> -->
     </section>
   </article>
   <!-- Render a list of all individual page URLs in the collection -->

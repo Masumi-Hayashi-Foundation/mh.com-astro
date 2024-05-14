@@ -18,8 +18,9 @@ const {
     <!-- scroll container snap-y -->
     <div class=`h-screen overflow-y-scroll snap-always ${classes}`>
       <Header />
-
-      <slot> Default text for unnamed slot </slot>
+      <main transition:animate="fade">
+        <slot> Default text for unnamed slot </slot>
+      </main>
 
       <Footer />
     </div>
