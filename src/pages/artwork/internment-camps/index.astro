@@ -27,7 +27,7 @@ const japaneseCanadianCamps = allEntries.filter(entry => entry.data.series === "
 <ScrollSnapLayout title="Internment Camps" classes="">
     <h1 class="text-museum-white bg-museum-black text-center  text-2xl pt-4">Japanese-American Internment Camps</h1>
     {japaneseAmericanCamps.map(camp => (
-      <article id={camp.data.slug} class="bg-museum-black text-museum-white py-16 snap-item snap-start flex flex-col justify-center items-center">
+      <article id={camp.data.slug} class="bg-museum-black text-museum-white py-8 snap-item snap-start flex flex-col justify-center items-center">
         <a href={`/artwork/internment-camps/${camp.data.slug}`}>
 
           <CloudinaryImage
@@ -49,8 +49,8 @@ const japaneseCanadianCamps = allEntries.filter(entry => entry.data.series === "
 
     <h1 class="text-museum-white bg-museum-black text-center snap-item snap-center text-2xl pt-4">Japanese-Canadian Internment Camps</h1>
     {japaneseCanadianCamps.map(camp => (
-      <article class="bg-museum-black text-museum-white py-16 snap-item snap-start flex flex-col justify-center items-center pb-16">
-        <a href="">
+      <article id={camp.data.slug} class="bg-museum-black text-museum-white py-16 snap-item snap-start flex flex-col justify-center items-center pb-16">
+        <a href={`/artwork/internment-camps/${camp.data.slug}`}>
 
           <CloudinaryImage
             cloudinaryId={camp.data.cloudinaryId}
@@ -62,6 +62,7 @@ const japaneseCanadianCamps = allEntries.filter(entry => entry.data.series === "
             media={camp.data.media}
             year={camp.data.year}
             size={camp.data.size}
+            figcaptionClasses="text-museum-white bg-museum-black"
             />
           <!-- Additional demographic information and map here -->
         </a>
