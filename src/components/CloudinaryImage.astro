@@ -129,7 +129,7 @@ const imageURL1920 = `${baseURL}/${transformations.join(",")},w_1920/${lgCopyPar
 const srcsetValue = `${imageURL640} 640w, ${imageURL768} 768w, ${imageURL1024} 1024w, ${imageURL1280} 1280w, ${imageURL1536} 1536w, ${imageURL1920} 1920w`;
 ---
 
-<div transition:name=`${name} image transition` transition:persist>
+<div transition:persist={name}>
   <div
     class=`w-full flex justify-center items-center bg-museum-black ${classNames}`
   >
@@ -161,28 +161,6 @@ const srcsetValue = `${imageURL640} 640w, ${imageURL768} 768w, ${imageURL1024} 1
   @media (min-width: 1280px) {
     img {
       border-bottom: 36px solid #000;
-    }
-  }
-
-  @keyframes slideUp {
-    from {
-      transform: translateY(20%);
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes slideDown {
-    from {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-      transform: translateY(20%);
     }
   }
 </style>

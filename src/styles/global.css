@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Condensed:wght@400;700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Condensed:wght@400;700&display=swap");
 
 html {
   background-color: #f1f5f9;
@@ -17,19 +16,21 @@ body {
   box-sizing: border-box;
 }
 
+main {
+  padding-bottom: 80px;
+  padding-top: 10px;
+}
 
 a {
-  color: theme('colors.link-normal');
+  color: theme("colors.link-normal");
   text-decoration: none;
 }
 
 a:hover {
-  color: theme('colors.link-hover');
+  color: theme("colors.link-hover");
   text-decoration: underline;
 }
 
 a:visited {
-  color: theme('colors.link-visited');
+  color: theme("colors.link-visited");
 }
-
-
