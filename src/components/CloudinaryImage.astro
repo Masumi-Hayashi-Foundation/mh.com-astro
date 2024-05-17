@@ -37,7 +37,7 @@ const {
   classNames,
   sourceUrl = "www.masumihayashi.com",
   figcaptionClasses,
-  transition,
+  slug,
 } = Astro.props;
 
 interface ArtworkProps {
@@ -50,6 +50,7 @@ interface ArtworkProps {
   cloudinaryId: string;
   media: string;
   size: string;
+  slug: string;
   classNames?: string;
   sourceUrl?: string;
   figcaptionClasses?: string;
@@ -112,7 +113,7 @@ const encodedLgImageDetails = encodeImageDetails(lgImageDetails);
 
 const smImageDetailsParam = `l_text:futura_20_line_spacing_2:${encodedSmImageDetails},co_white,g_south_west,x_30,y_-60`;
 const mdImageDetailsParam = `l_text:futura_20_line_spacing_2:${encodedMdImageDetails},co_white,g_south_west,x_30,y_-20`;
-const lgImageDetailsParam = `l_text:futura_22_line_spacing_2:${encodedLgImageDetails},co_white,g_south_west,x_30,y_-60`;
+const lgImageDetailsParam = `l_text:futura_20_line_spacing_2:${encodedLgImageDetails},co_white,g_south_west,x_30,y_-60`;
 
 const imageURL640 = `${baseURL}/${transformations.join(",")},w_640/${smImageTitleParam}/${smImageDetailsParam}/${imageID}`;
 
