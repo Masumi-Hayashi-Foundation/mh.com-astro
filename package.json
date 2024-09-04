@@ -11,13 +11,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.10",
-    "@astrojs/mdx": "^3.0.0",
-    "@astrojs/partytown": "^2.1.0",
-    "@astrojs/react": "^3.3.2",
+    "@astrojs/check": "^0.9.3",
+    "@astrojs/mdx": "^3.1.5",
+    "@astrojs/partytown": "^2.1.2",
+    "@astrojs/react": "^3.6.2",
     "@astrojs/tailwind": "^5.1.0",
     "@tailwindcss/typography": "^0.5.13",
-    "astro": "^4.7.0",
+    "astro": "^4.15.2",
     "astro-devtool-breakpoints": "^0.3.0",
     "astro-icon": "^1.1.0",
     "cloudinary": "^2.2.0",
