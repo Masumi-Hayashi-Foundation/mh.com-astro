@@ -1,121 +1,46 @@
 ---
-// Import necessary components and utilities
-import CloudinaryImage from "../../../components/CloudinaryImage.astro";
 import { getCollection } from "astro:content";
-import MainLayout from "../../../layouts/MainLayout.astro";
-import { slide } from "astro:transitions";
-
-// Define TypeScript interface for stronger type checks (if your project supports TypeScript)
-interface ArtworkEntry {
-  data: {
-    slug: string;
-    title: string;
-    name: string;
-    cloudinaryId: string;
-    altTag: string;
-    media: string;
-    year: string;
-    size: string;
-    inventory: string;
-    city: string;
-    state: string;
-    country: string;
-  };
-}
+import ArtworkWithCampDataLayout from "../../../layouts/ArtworkWithCampDataLayout.astro";
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection("artwork");
-  return blogEntries.map((entry) => ({
+  const artworkEntries = await getCollection("artwork");
+  return artworkEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
   }));
 }
 
-// Fetch all entries from the "art-pages" collection
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+// Fetch all entries for the footer links
 const allArtPagesEntries = await getCollection("artwork");
-console.log(allArtPagesEntries);
-
-// Extract the `slug` parameter from the URL
-const params = Astro.params;
-console.log(params);
-
-// Find the specific artwork entry based on the slug
-const artwork = allArtPagesEntries.find((entry: any) => {
-  return entry.slug === params.slug;
-}) as ArtworkEntry | undefined;
-
-console.log(artwork);
-
-// Throw an error if no artwork is found
-if (!artwork) {
-  throw new Error("Artwork not found");
-}
 ---
 
-<MainLayout title={artwork.data.title} description={artwork.data.altTag}>
-  <article class="bg-museum-black">
-    <section class="pt-16">
-      <a href={`/artwork/internment-camps/#${artwork.data.slug}`}>
-        <CloudinaryImage
-          cloudinaryId={artwork.data.cloudinaryId}
-          alt={artwork.data.altTag}
-          title={artwork.data.title}
-          name={artwork.data.name}
-          city={artwork.data.city}
-          state={artwork.data.state}
-          country={artwork.data.country}
-          media={artwork.data.media}
-          year={artwork.data.year}
-          size={artwork.data.size}
-          inventory={artwork.data.inventory}
-          slug={artwork.data.slug}
-          figcaptionClasses="text-museum-white bg-museum-black"
-        />
-      </a>
-    </section>
+<ArtworkWithCampDataLayout entry={entry}>
+  <Content />
 
-    More text for the artwork page
-  </article>
-
-
-
-  <!-- Render a list of all individual page URLs in the collection -->
-  <footer
-    class="bg-museum-white flex flex-col justify-center items-center pt-16 font-robotoCondensed"
-  >
+  <!-- Footer with links to other artworks -->
+  <footer class="bg-museum-white flex flex-col justify-center items-center pt-16 font-robotoCondensed">
     <h2 class="text-xl py-8">Japanese-American Internment Camps</h2>
     <ul class="flex flex-col items-center">
-      {
-        allArtPagesEntries
-          .filter(
-            (entry) =>
-              entry.data.series === "Japanese-American Internment Camps"
-          )
-          .map((entry) => (
-            <li class=" self-start ml-8">
-              <a href={`/artwork/internment-camps/${entry.slug}`}>
-                {entry.data.title}
-              </a>
-            </li>
-          ))
-      }
+      {allArtPagesEntries
+        .filter((e) => e.data.series === "Japanese-American Internment Camps")
+        .map((e) => (
+          <li class="self-start ml-8">
+            <a href={`/artwork/internment-camps/${e.slug}`}>{e.data.title}</a>
+          </li>
+        ))}
     </ul>
     <h2 class="text-xl py-8">Japanese-Canadian Prisoner of War Camps</h2>
     <ul class="flex flex-col justify-center pb-8">
-      {
-        allArtPagesEntries
-          .filter(
-            (entry) =>
-              entry.data.series === "Japanese-Canadian Internment Camps"
-          )
-          .map((entry) => (
-            <li class="px-2">
-              <a href={`/artwork/internment-camps/${entry.slug}`}>
-                {entry.data.title}
-              </a>
-            </li>
-          ))
-      }
+      {allArtPagesEntries
+        .filter((e) => e.data.series === "Japanese-Canadian Internment Camps")
+        .map((e) => (
+          <li class="px-2">
+            <a href={`/artwork/internment-camps/${e.slug}`}>{e.data.title}</a>
+          </li>
+        ))}
     </ul>
   </footer>
-</MainLayout>
+</ArtworkWithCampDataLayout>
