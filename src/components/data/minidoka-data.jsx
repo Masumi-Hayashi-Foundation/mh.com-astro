@@ -9,7 +9,7 @@ export default function MinidokaData() {
             <div className="text-gray-500">
                 <p><span className="font-bold text-blue-600 mt-1 inline-block">Location:</span> Jerome County, south central Idaho, 6 miles north of Eden.</p>
 
-                <img src={`usmap.sm.gif`} className="float-right m-6 ml-6" alt="small map of Japanese-American internment camps in western USA" />
+                <img src={`/usmap.sm.gif`} className="float-right m-6 ml-6" alt="small map of Japanese-American internment camps in western USA" />
 
                 <p><span className="font-bold text-blue-600 mt-1 inline-block">Land: </span> Federal reclamation project land, part of the Gooding Reclamation District.</p>
 

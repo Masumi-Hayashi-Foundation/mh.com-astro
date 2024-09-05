@@ -9,7 +9,7 @@ export default function TuleLakeData() {
             <div className="text-gray-500">
                 <p><span className="font-bold text-blue-600 mt-1 inline-block">Location:</span> Northern California, near the Oregon border.</p>
 
-                <img src={`usmap.sm.gif`} className="float-right m-6 ml-6" alt="small map of Japanese-American internment camps in western USA" />
+                <img src={`/usmap.sm.gif`} className="float-right m-6 ml-6" alt="small map of Japanese-American internment camps in western USA" />
 
                 <p><span className="font-bold text-blue-600 mt-1 inline-block">Size:</span> 7,400 acres; the center was divided into three camps: A, B, and C.</p>
 
