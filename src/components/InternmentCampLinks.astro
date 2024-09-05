@@ -30,7 +30,7 @@ const { entries } = Astro.props as Props;
         )
         .map((entry) => (
           <li class="self-start ml-8">
-            <a href={`/artwork/internment-camps/${entry.slug}`}>{entry.name}</a>
+            <a href={`/artwork/internment-camps-with-data/${entry.slug}`}>{entry.name}</a>
           </li>
         ))
     }
@@ -44,7 +44,7 @@ const { entries } = Astro.props as Props;
         )
         .map((entry) => (
           <li class="px-2">
-            <a href={`/artwork/internment-camps/${entry.slug}`}>{entry.name}</a>
+            <a href={`/artwork/internment-camps-with-data/${entry.slug}`}>{entry.name}</a>
           </li>
         ))
     }
