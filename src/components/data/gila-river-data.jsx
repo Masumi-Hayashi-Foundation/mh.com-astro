@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function GilaRiverData() {
     return (
-        <div className="p-16 pr-4 max-w-2xl">
+        <div className=" prose bg-museum-beige p-16 pr-4 max-w-2xl">
             <h3 className="font-bold text-red-600 text-3xl">
                 Research: Gila River Relocation Camp
             </h3>
