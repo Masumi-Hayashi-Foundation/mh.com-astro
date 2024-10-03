@@ -16,7 +16,7 @@ Although the violence was not as extreme as in the European history, the Japanes
 Of the 120,000 Japanese Americans and 23,000 Japanese Canadians interned there were no trials to prove guilt or innocence of any crime, no convictions of espionage or treason. Almost fifty years later, American Presidents Clinton and Reagan and Canadian Prime Minister Brian Mulroney issued letters of apology to those still living who had been interned in these camps, acknowledging their government's mistake.
 
 These photographs exhibited are the backdrop for the special memorial of "Day of Remembrance" we will have here at the CSU Art Gallery on February 17th, at 4PM. Day of remembrance is usually on February 19th and is significant of the day of evacuation in 1942. Join us in a candle light memorial and lecture and discussion.
-
+ 
 
 ## Special Appreciation
 
