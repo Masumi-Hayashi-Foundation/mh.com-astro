@@ -1,0 +1,47 @@
+---
+import CloudinaryImage from "../components/CloudinaryImage.astro";
+
+const { classNames } = Astro.props;
+
+const manzanarMonument = {
+  cloudinaryId: "internment-camps/manzanar-internment-camp-monument_gue2hh",
+  title: "Manzanar Concentration Camp, Monument",
+  media: "Panoramic photo collage with Fuji Crystal Archive prints",
+  year: "1995",
+  city: "Inyo County",
+  state: "California",
+  country: "USA",
+  size: '20" x 40"',
+};
+---
+
+<article class={`${classNames} flex flex-col justify-center items-center bg-museum-black text-museum-white`}>
+  <section class="w-full h-full">
+    <CloudinaryImage
+      title={manzanarMonument.title}
+      name={manzanarMonument.title}
+      city={manzanarMonument.city}
+      state={manzanarMonument.state}
+      year={manzanarMonument.year}
+      cloudinaryId={manzanarMonument.cloudinaryId}
+      media={manzanarMonument.media}
+      classNames={classNames}
+      size={manzanarMonument.size}
+    />
+  </section>
+  <section class="prose prose-invert px-6 py-24 sm:px-8 max-w-3xl">
+    <h1 class="text-3xl font-bold my-6">Welcome to MasumiHayashi.com</h1>
+    <p>
+      Welcome to the official archive celebrating the legacy of Professor Masumi Hayashi (1945-2006), a visionary artist whose panoramic photo collages have left an indelible mark on the world of photography and historical documentation.
+    </p>
+    <p>
+      Hayashi's work, exemplified by pieces like the Manzanar Concentration Camp Monument shown above, stands as a powerful testament to her unique ability to capture landscapes embedded with cultural memory. Her intricate panoramic photo collages, meticulously crafted from hundreds of individual film exposures, offer a profound engagement with historical sites and their enduring significance.
+    </p>
+    <p>
+      As you explore this site, you'll discover Hayashi's groundbreaking project on Japanese American internment camps, a deeply personal journey that reflects her own history of being born in one such camp. Through her lens, these sites of historical trauma are transformed into powerful visual narratives that resonate with contemporary audiences, inviting reflection on issues of memory, identity, and justice.
+    </p>
+    <p>
+      We invite you to delve into Hayashi's extensive body of work, including her poignant internment camp series, the innovative Family Album Project, and her artist statements that provide insight into her creative process and motivations. Whether you're a long-time admirer of Hayashi's work or discovering it for the first time, this archive offers a comprehensive look at the life and art of this remarkable photographer.
+    </p>
+  </section>
+</article>

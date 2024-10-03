@@ -1,0 +1,13 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { Content as AboutContent } from '../content/pages/about.mdx';
+---
+
+<MainLayout title="About Masumi Hayashi" description="Learn about the life and work of Masumi Hayashi">
+  <main class="bg-museum-white prose lg:prose-xl mx-auto px-4 py-8 max-w-3xl">
+    <article class="text-left">
+      <h1 class="text-3xl font-bold mb-6">About Masumi Hayashi</h1>
+      <AboutContent />
+    </article>
+  </main>
+</MainLayout>
